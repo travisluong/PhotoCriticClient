@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
+            <connections>
+                <outlet property="password" destination="PIP-68-s6e" id="tnB-b2-E4e"/>
+                <outlet property="username" destination="qoC-23-FWR" id="xwN-Xy-cQk"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo Critic" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sA-nk-h3R">
+                    <rect key="frame" x="20" y="81" width="560" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qoC-23-FWR">
+                    <rect key="frame" x="20" y="165" width="560" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PIP-68-s6e">
+                    <rect key="frame" x="20" y="263" width="560" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXc-7t-Zu3">
+                    <rect key="frame" x="20" y="352" width="560" height="30"/>
+                    <state key="normal" title="Sign in">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="signIn:" destination="-1" eventType="touchUpInside" id="7WV-9q-Wg9"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="qoC-23-FWR" secondAttribute="trailing" constant="20" id="6zt-i9-LiW"/>
+                <constraint firstItem="gXc-7t-Zu3" firstAttribute="top" secondItem="PIP-68-s6e" secondAttribute="bottom" constant="59" id="9p0-pR-E1A"/>
+                <constraint firstItem="PIP-68-s6e" firstAttribute="top" secondItem="qoC-23-FWR" secondAttribute="bottom" constant="68" id="MnU-1F-72H"/>
+                <constraint firstItem="5sA-nk-h3R" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="OWp-It-iBn"/>
+                <constraint firstItem="gXc-7t-Zu3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Prw-Lb-35i"/>
+                <constraint firstItem="qoC-23-FWR" firstAttribute="top" secondItem="5sA-nk-h3R" secondAttribute="bottom" constant="63" id="RST-1g-jWE"/>
+                <constraint firstAttribute="trailing" secondItem="5sA-nk-h3R" secondAttribute="trailing" constant="20" id="dwL-7V-nF2"/>
+                <constraint firstItem="qoC-23-FWR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="fO4-uv-xOb"/>
+                <constraint firstItem="5sA-nk-h3R" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="81" id="lp3-Vz-3sJ"/>
+                <constraint firstAttribute="trailing" secondItem="PIP-68-s6e" secondAttribute="trailing" constant="20" id="nMg-fG-TGm"/>
+                <constraint firstItem="PIP-68-s6e" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="uzL-rP-8Jv"/>
+                <constraint firstAttribute="trailing" secondItem="gXc-7t-Zu3" secondAttribute="trailing" constant="20" id="yeg-ic-BuP"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

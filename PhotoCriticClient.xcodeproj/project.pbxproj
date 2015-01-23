@@ -14,6 +14,8 @@
 		CAB6C3101A707A0C0004C090 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAB6C30F1A707A0C0004C090 /* Images.xcassets */; };
 		CAB6C3131A707A0C0004C090 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAB6C3111A707A0C0004C090 /* LaunchScreen.xib */; };
 		CAB6C31F1A707A0C0004C090 /* PhotoCriticClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB6C31E1A707A0C0004C090 /* PhotoCriticClientTests.m */; };
+		CAB6C32B1A7080480004C090 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB6C3291A7080480004C090 /* LoginViewController.m */; };
+		CAB6C32C1A7080480004C090 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAB6C32A1A7080480004C090 /* LoginViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,9 @@
 		CAB6C3181A707A0C0004C090 /* PhotoCriticClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoCriticClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB6C31D1A707A0C0004C090 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAB6C31E1A707A0C0004C090 /* PhotoCriticClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoCriticClientTests.m; sourceTree = "<group>"; };
+		CAB6C3281A7080480004C090 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		CAB6C3291A7080480004C090 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		CAB6C32A1A7080480004C090 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +88,9 @@
 			children = (
 				CAB6C3061A707A0C0004C090 /* AppDelegate.h */,
 				CAB6C3071A707A0C0004C090 /* AppDelegate.m */,
+				CAB6C3281A7080480004C090 /* LoginViewController.h */,
+				CAB6C3291A7080480004C090 /* LoginViewController.m */,
+				CAB6C32A1A7080480004C090 /* LoginViewController.xib */,
 				CAB6C3091A707A0C0004C090 /* ViewController.h */,
 				CAB6C30A1A707A0C0004C090 /* ViewController.m */,
 				CAB6C30C1A707A0C0004C090 /* Main.storyboard */,
@@ -199,6 +207,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAB6C32C1A7080480004C090 /* LoginViewController.xib in Resources */,
 				CAB6C30E1A707A0C0004C090 /* Main.storyboard in Resources */,
 				CAB6C3131A707A0C0004C090 /* LaunchScreen.xib in Resources */,
 				CAB6C3101A707A0C0004C090 /* Images.xcassets in Resources */,
@@ -219,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAB6C32B1A7080480004C090 /* LoginViewController.m in Sources */,
 				CAB6C30B1A707A0C0004C090 /* ViewController.m in Sources */,
 				CAB6C3081A707A0C0004C090 /* AppDelegate.m in Sources */,
 				CAB6C3051A707A0C0004C090 /* main.m in Sources */,
