@@ -41,15 +41,14 @@
     NSURL *url = [NSURL URLWithString:requestString];
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
     [req setHTTPMethod:@"POST"];
-    NSString *jsonString = [NSString stringWithFormat:@"{\"user\": {\"email\": \"%@\", \"password\": \"%@\"} }", self.username.text, self.password.text];
-    NSLog(@"%@", jsonString);
-    NSData *postData = [jsonString dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    [req setHTTPBody: postData];
+    NSDictionary *userDict = @{@"user": @{@"email": self.username.text, @"password": self.password.text}};
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:userDict options:NSJSONWritingPrettyPrinted error:nil];
+    [req setHTTPBody: jsonData];
     [req addValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [req addValue:@"application/json" forHTTPHeaderField:@"Content-type"];
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"%@", json);
+        NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        NSLog(@"%@", jsonObject);
     }];
     
     [dataTask resume];
