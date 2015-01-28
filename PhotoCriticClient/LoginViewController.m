@@ -7,6 +7,9 @@
 //
 
 #import "LoginViewController.h"
+#import "NewPhotoViewController.h"
+#import "PhotosTableViewController.h"
+#import "AppDelegate.h"
 
 @interface LoginViewController ()
 @property (strong, nonatomic) IBOutlet UITextField *username;
@@ -21,6 +24,10 @@
     if (self) {
         NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
         _session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:nil];
+        
+        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+        
+        [nc addObserver:self selector:@selector(navigateToMainScreen) name:@"loginSuccess" object:nil];
     }
     return self;
 }
@@ -49,9 +56,30 @@
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         NSLog(@"%@", jsonObject);
+        NSLog(@"completionHandlerFinished");
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            AppDelegate *app = [UIApplication sharedApplication].delegate;
+            [app setRoots];
+        });
+        
+//        [self navigateToMainScreen];
+//        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+//        [nc postNotificationName:@"loginSuccess" object:nil];
+        
     }];
-    
+//    [self navigateToMainScreen];
     [dataTask resume];
+    NSLog(@"signInFinished");
+}
+
+- (void)navigateToMainScreen {
+    NSLog(@"hello");
+    NewPhotoViewController *npvc = [[NewPhotoViewController alloc] init];
+    PhotosTableViewController *ptvc = [[PhotosTableViewController alloc] init];
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    tabBarController.viewControllers = @[ptvc, npvc];
+    [self.navigationController pushViewController:tabBarController animated:YES];
 }
 
 

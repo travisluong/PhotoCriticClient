@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "NewPhotoViewController.h"
+#import "PhotosTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,8 +20,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    LoginViewController *lVC = [[LoginViewController alloc] init];
-    self.window.rootViewController = lVC;
+    LoginViewController *lvc = [[LoginViewController alloc] init];
+    
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:lvc];
+    
+    self.window.rootViewController = navController;
     return YES;
 }
 
@@ -43,6 +48,14 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)setRoots {
+    NewPhotoViewController *npvc = [[NewPhotoViewController alloc] init];
+    PhotosTableViewController *ptvc = [[PhotosTableViewController alloc] init];
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    tabBarController.viewControllers = @[ptvc, npvc];
+    self.window.rootViewController = tabBarController;
 }
 
 @end
