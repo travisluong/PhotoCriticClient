@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PhotosTableViewController : UITableViewController
-
+@property (strong, nonatomic) NSDictionary *authInfo;
 @end

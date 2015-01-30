@@ -55,31 +55,25 @@
     [req addValue:@"application/json" forHTTPHeaderField:@"Content-type"];
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        NSString *auth_token = [jsonObject objectForKey:@"authentication_token"];
+        NSString *user_email = [[jsonObject objectForKey:@"user"] objectForKey:@"email"];
+        NSLog(@"%@", user_email);
+        NSLog(@"%@", auth_token);
         NSLog(@"%@", jsonObject);
         NSLog(@"completionHandlerFinished");
         
+        NSDictionary *authInfo = @{@"email": user_email, @"authentication_token": auth_token};
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             AppDelegate *app = [UIApplication sharedApplication].delegate;
+            app.authInfo = authInfo;
             [app setRoots];
         });
         
-//        [self navigateToMainScreen];
-//        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-//        [nc postNotificationName:@"loginSuccess" object:nil];
-        
     }];
-//    [self navigateToMainScreen];
+
     [dataTask resume];
     NSLog(@"signInFinished");
-}
-
-- (void)navigateToMainScreen {
-    NSLog(@"hello");
-    NewPhotoViewController *npvc = [[NewPhotoViewController alloc] init];
-    PhotosTableViewController *ptvc = [[PhotosTableViewController alloc] init];
-    UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = @[ptvc, npvc];
-    [self.navigationController pushViewController:tabBarController animated:YES];
 }
 
 
