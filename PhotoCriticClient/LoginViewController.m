@@ -25,9 +25,6 @@
         NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
         _session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:nil];
         
-        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-        
-        [nc addObserver:self selector:@selector(navigateToMainScreen) name:@"loginSuccess" object:nil];
     }
     return self;
 }
