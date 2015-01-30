@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSDictionary *authInfo;
+@property (nonatomic) NSURLSession *session;
 
 - (void) setRoots;
 

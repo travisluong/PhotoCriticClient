@@ -14,9 +14,20 @@
 
 @implementation PhotosTableViewController
 
+- (void)fetchPhotos {
+    NSString *requestString = [NSString stringWithFormat:@"http://localhost:3000/api/v1/photos?user_email=%@&user_token=%@", [self.authInfo objectForKey:@"email"], [self.authInfo objectForKey:@"authentication_token"]];
+    NSURL *url = [NSURL URLWithString:requestString];
+    NSURLRequest *req = [NSURLRequest requestWithURL:url];
+    NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"%@", json);
+                          }];
+    [dataTask resume];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self fetchPhotos];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     

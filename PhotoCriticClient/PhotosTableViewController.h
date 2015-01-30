@@ -10,4 +10,5 @@
 
 @interface PhotosTableViewController : UITableViewController
 @property (strong, nonatomic) NSDictionary *authInfo;
+@property (nonatomic) NSURLSession *session;
 @end

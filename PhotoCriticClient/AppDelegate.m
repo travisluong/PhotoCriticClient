@@ -55,6 +55,7 @@
     NewPhotoViewController *npvc = [[NewPhotoViewController alloc] init];
     PhotosTableViewController *ptvc = [[PhotosTableViewController alloc] init];
     ptvc.authInfo = self.authInfo;
+    ptvc.session = self.session;
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     tabBarController.viewControllers = @[ptvc, npvc];
     self.window.rootViewController = tabBarController;

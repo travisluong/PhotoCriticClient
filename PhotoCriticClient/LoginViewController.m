@@ -64,6 +64,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             AppDelegate *app = [UIApplication sharedApplication].delegate;
             app.authInfo = authInfo;
+            app.session = self.session;
             [app setRoots];
         });
         
