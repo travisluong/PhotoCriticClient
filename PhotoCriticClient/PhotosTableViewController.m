@@ -7,6 +7,7 @@
 //
 
 #import "PhotosTableViewController.h"
+#import "PhotoTableViewCell.h"
 
 @interface PhotosTableViewController ()
 @property (nonatomic, copy) NSArray *photos;
@@ -33,7 +34,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+//    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+    UINib *nib = [UINib nibWithNibName:@"PhotoTableViewCell" bundle:nil];
+    
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"PhotoTableViewCell"];
     
     [self fetchPhotos];
     // Uncomment the following line to preserve selection between presentations.
@@ -64,12 +68,15 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
-    
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
+    PhotoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PhotoTableViewCell"];
     // Configure the cell...
     NSDictionary *photo = self.photos[indexPath.row];
-    cell.textLabel.text = photo[@"title"];
-    
+    cell.titleLabel.text = photo[@"title"];
+    NSURL *url = [NSURL URLWithString:photo[@"thumbnail"]];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    UIImage *img = [[UIImage alloc] initWithData:data];
+    cell.thumbnailView.image = img;
     return cell;
 }
 
