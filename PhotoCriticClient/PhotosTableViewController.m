@@ -8,8 +8,10 @@
 
 #import "PhotosTableViewController.h"
 #import "PhotoTableViewCell.h"
+#import "PhotoViewController.h"
 
-@interface PhotosTableViewController ()
+@interface PhotosTableViewController () <UIPopoverControllerDelegate>
+@property (nonatomic, strong) UIPopoverController *imagePopover;
 @property (nonatomic, copy) NSArray *photos;
 @end
 
@@ -80,9 +82,24 @@
     if (photo[@"critique"] != [NSNull null]) {
         cell.critiqueLabel.text = photo[@"critique"];
     }
+    cell.actionBlock = ^{
+        NSLog(@"showing image for ...");
+        NSURL *url = [NSURL URLWithString:photo[@"medium"]];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        UIImage *img = [[UIImage alloc] initWithData:data];
+        PhotoViewController *pvc = [[PhotoViewController alloc] init];
+        pvc.image = img;
+        
+        [self presentViewController:pvc animated:YES completion:^{
+            
+        }];
+    };
     return cell;
 }
 
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
+    self.imagePopover = nil;
+}
 
 /*
 // Override to support conditional editing of the table view.

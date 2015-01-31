@@ -12,5 +12,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailView;
 @property (weak, nonatomic) IBOutlet UILabel *critiqueLabel;
-
+@property (nonatomic, copy) void (^actionBlock)(void);
 @end

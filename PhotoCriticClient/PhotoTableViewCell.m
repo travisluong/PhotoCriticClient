@@ -22,6 +22,9 @@
 
 - (IBAction)showImage:(id)sender {
     NSLog(@"showing image");
+    if (self.actionBlock) {
+        self.actionBlock();
+    }
 }
 
 @end
