@@ -77,6 +77,9 @@
     NSData *data = [NSData dataWithContentsOfURL:url];
     UIImage *img = [[UIImage alloc] initWithData:data];
     cell.thumbnailView.image = img;
+    if (photo[@"critique"] != [NSNull null]) {
+        cell.critiqueLabel.text = photo[@"critique"];
+    }
     return cell;
 }
 
