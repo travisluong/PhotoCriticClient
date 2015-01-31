@@ -20,4 +20,8 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)showImage:(id)sender {
+    NSLog(@"showing image");
+}
+
 @end
