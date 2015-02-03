@@ -1,41 +1,40 @@
 //
-//  PhotoViewController.m
+//  PhotoDetailViewController.m
 //  PhotoCriticClient
 //
-//  Created by Travis Luong on 1/31/15.
+//  Created by Travis Luong on 2/2/15.
 //  Copyright (c) 2015 Travis Luong. All rights reserved.
 //
 
-#import "PhotoViewController.h"
+#import "PhotoDetailViewController.h"
 
-@interface PhotoViewController ()
+@interface PhotoDetailViewController ()
 
 @end
 
-@implementation PhotoViewController
-
-- (void)loadView {
-    UIImageView *imageView = [[UIImageView alloc] init];
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
-    self.view = imageView;
-}
+@implementation PhotoDetailViewController
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    UIImageView *imageView = (UIImageView *)self.view;
-    imageView.image = self.image;
+    self.image.image = self.uiimage;
+    self.critiqueLabel.text = self.critique;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)backToList:(id)sender {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 /*
 #pragma mark - Navigation

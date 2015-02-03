@@ -8,7 +8,7 @@
 
 #import "PhotosTableViewController.h"
 #import "PhotoTableViewCell.h"
-#import "PhotoViewController.h"
+#import "PhotoDetailViewController.h"
 
 @interface PhotosTableViewController () <UIPopoverControllerDelegate>
 @property (nonatomic, strong) UIPopoverController *imagePopover;
@@ -87,10 +87,13 @@
         NSURL *url = [NSURL URLWithString:photo[@"medium"]];
         NSData *data = [NSData dataWithContentsOfURL:url];
         UIImage *img = [[UIImage alloc] initWithData:data];
-        PhotoViewController *pvc = [[PhotoViewController alloc] init];
-        pvc.image = img;
-        
-        [self presentViewController:pvc animated:YES completion:^{
+        PhotoDetailViewController *pdvc = [[PhotoDetailViewController alloc] init];
+        pdvc.uiimage = img;
+        if (photo[@"critique"] != [NSNull null]) {
+            NSLog(@"setting critique");
+            pdvc.critique = photo[@"critique"];
+        }
+        [self presentViewController:pdvc animated:YES completion:^{
             
         }];
     };

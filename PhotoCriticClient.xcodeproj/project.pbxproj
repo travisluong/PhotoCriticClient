@@ -18,7 +18,8 @@
 		CAB6C31F1A707A0C0004C090 /* PhotoCriticClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB6C31E1A707A0C0004C090 /* PhotoCriticClientTests.m */; };
 		CAB6C32B1A7080480004C090 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB6C3291A7080480004C090 /* LoginViewController.m */; };
 		CAB6C32C1A7080480004C090 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAB6C32A1A7080480004C090 /* LoginViewController.xib */; };
-		CACC7EC61A7D93690049A97C /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CACC7EC51A7D93690049A97C /* PhotoViewController.m */; };
+		CAC8287E1A805C76003FB285 /* PhotoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC8287C1A805C76003FB285 /* PhotoDetailViewController.m */; };
+		CAC8287F1A805C76003FB285 /* PhotoDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAC8287D1A805C76003FB285 /* PhotoDetailViewController.xib */; };
 		CAD0757A1A7853C400AE184B /* PhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAD075781A7853C400AE184B /* PhotosTableViewController.m */; };
 		CAD0757B1A7853C400AE184B /* PhotosTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAD075791A7853C400AE184B /* PhotosTableViewController.xib */; };
 		CAD0757F1A78540900AE184B /* NewPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAD0757D1A78540900AE184B /* NewPhotoViewController.m */; };
@@ -55,8 +56,9 @@
 		CAB6C3281A7080480004C090 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		CAB6C3291A7080480004C090 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		CAB6C32A1A7080480004C090 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		CACC7EC41A7D93690049A97C /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
-		CACC7EC51A7D93690049A97C /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
+		CAC8287B1A805C76003FB285 /* PhotoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDetailViewController.h; sourceTree = "<group>"; };
+		CAC8287C1A805C76003FB285 /* PhotoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDetailViewController.m; sourceTree = "<group>"; };
+		CAC8287D1A805C76003FB285 /* PhotoDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoDetailViewController.xib; sourceTree = "<group>"; };
 		CAD075771A7853C400AE184B /* PhotosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosTableViewController.h; sourceTree = "<group>"; };
 		CAD075781A7853C400AE184B /* PhotosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosTableViewController.m; sourceTree = "<group>"; };
 		CAD075791A7853C400AE184B /* PhotosTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotosTableViewController.xib; sourceTree = "<group>"; };
@@ -115,10 +117,11 @@
 				CAD0757C1A78540900AE184B /* NewPhotoViewController.h */,
 				CAD0757D1A78540900AE184B /* NewPhotoViewController.m */,
 				CAD0757E1A78540900AE184B /* NewPhotoViewController.xib */,
+				CAC8287B1A805C76003FB285 /* PhotoDetailViewController.h */,
+				CAC8287C1A805C76003FB285 /* PhotoDetailViewController.m */,
+				CAC8287D1A805C76003FB285 /* PhotoDetailViewController.xib */,
 				CAD075771A7853C400AE184B /* PhotosTableViewController.h */,
 				CAD075781A7853C400AE184B /* PhotosTableViewController.m */,
-				CACC7EC41A7D93690049A97C /* PhotoViewController.h */,
-				CACC7EC51A7D93690049A97C /* PhotoViewController.m */,
 				CAD075791A7853C400AE184B /* PhotosTableViewController.xib */,
 				CA57E0CC1A7C4F950037E9A9 /* PhotoTableViewCell.h */,
 				CA57E0CD1A7C4F950037E9A9 /* PhotoTableViewCell.m */,
@@ -241,6 +244,7 @@
 				CAB6C30E1A707A0C0004C090 /* Main.storyboard in Resources */,
 				CAB6C3131A707A0C0004C090 /* LaunchScreen.xib in Resources */,
 				CAD0757B1A7853C400AE184B /* PhotosTableViewController.xib in Resources */,
+				CAC8287F1A805C76003FB285 /* PhotoDetailViewController.xib in Resources */,
 				CAB6C3101A707A0C0004C090 /* Images.xcassets in Resources */,
 				CA57E0D01A7C4F950037E9A9 /* PhotoTableViewCell.xib in Resources */,
 			);
@@ -261,9 +265,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAD0757A1A7853C400AE184B /* PhotosTableViewController.m in Sources */,
-				CACC7EC61A7D93690049A97C /* PhotoViewController.m in Sources */,
 				CAB6C32B1A7080480004C090 /* LoginViewController.m in Sources */,
 				CAD0757F1A78540900AE184B /* NewPhotoViewController.m in Sources */,
+				CAC8287E1A805C76003FB285 /* PhotoDetailViewController.m in Sources */,
 				CA57E0CF1A7C4F950037E9A9 /* PhotoTableViewCell.m in Sources */,
 				CAB6C30B1A707A0C0004C090 /* ViewController.m in Sources */,
 				CAB6C3081A707A0C0004C090 /* AppDelegate.m in Sources */,
