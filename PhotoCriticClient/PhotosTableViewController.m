@@ -42,6 +42,8 @@
     [self.tableView registerNib:nib forCellReuseIdentifier:@"PhotoTableViewCell"];
     
     [self fetchPhotos];
+    
+    self.tableView.contentInset = UIEdgeInsetsMake(20.0f, 0.0f, 0.0f, 0.0f);
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
