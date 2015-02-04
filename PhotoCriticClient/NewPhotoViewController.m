@@ -14,6 +14,19 @@
 
 @implementation NewPhotoViewController
 
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
+    if (self) {
+        self.tabBarItem.title = @"New Photo";
+        
+        UIImage *i = [UIImage imageNamed:@"camera-32"];
+        self.tabBarItem.image = i;
+    }
+    
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.

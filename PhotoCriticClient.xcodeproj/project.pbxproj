@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA0A3E5A1A81964600330F67 /* camera-32.png in Resources */ = {isa = PBXBuildFile; fileRef = CA0A3E591A81964600330F67 /* camera-32.png */; };
+		CA0A3E5D1A81976A00330F67 /* stack_of_photos-32.png in Resources */ = {isa = PBXBuildFile; fileRef = CA0A3E5C1A81976A00330F67 /* stack_of_photos-32.png */; };
 		CA57E0CF1A7C4F950037E9A9 /* PhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA57E0CD1A7C4F950037E9A9 /* PhotoTableViewCell.m */; };
 		CA57E0D01A7C4F950037E9A9 /* PhotoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA57E0CE1A7C4F950037E9A9 /* PhotoTableViewCell.xib */; };
 		CAB6C3051A707A0C0004C090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB6C3041A707A0C0004C090 /* main.m */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA0A3E591A81964600330F67 /* camera-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-32.png"; sourceTree = "<group>"; };
+		CA0A3E5C1A81976A00330F67 /* stack_of_photos-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stack_of_photos-32.png"; sourceTree = "<group>"; };
 		CA57E0CC1A7C4F950037E9A9 /* PhotoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoTableViewCell.h; sourceTree = "<group>"; };
 		CA57E0CD1A7C4F950037E9A9 /* PhotoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTableViewCell.m; sourceTree = "<group>"; };
 		CA57E0CE1A7C4F950037E9A9 /* PhotoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoTableViewCell.xib; sourceTree = "<group>"; };
@@ -85,6 +89,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA0A3E5B1A81966900330F67 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				CA0A3E5C1A81976A00330F67 /* stack_of_photos-32.png */,
+				CA0A3E591A81964600330F67 /* camera-32.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		CAB6C2F61A707A0C0004C090 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +119,7 @@
 		CAB6C3011A707A0C0004C090 /* PhotoCriticClient */ = {
 			isa = PBXGroup;
 			children = (
+				CA0A3E5B1A81966900330F67 /* images */,
 				CAB6C3061A707A0C0004C090 /* AppDelegate.h */,
 				CAB6C3071A707A0C0004C090 /* AppDelegate.m */,
 				CAB6C30F1A707A0C0004C090 /* Images.xcassets */,
@@ -244,9 +258,11 @@
 				CAB6C30E1A707A0C0004C090 /* Main.storyboard in Resources */,
 				CAB6C3131A707A0C0004C090 /* LaunchScreen.xib in Resources */,
 				CAD0757B1A7853C400AE184B /* PhotosTableViewController.xib in Resources */,
+				CA0A3E5D1A81976A00330F67 /* stack_of_photos-32.png in Resources */,
 				CAC8287F1A805C76003FB285 /* PhotoDetailViewController.xib in Resources */,
 				CAB6C3101A707A0C0004C090 /* Images.xcassets in Resources */,
 				CA57E0D01A7C4F950037E9A9 /* PhotoTableViewCell.xib in Resources */,
+				CA0A3E5A1A81964600330F67 /* camera-32.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

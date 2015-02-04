@@ -17,8 +17,21 @@
 
 @implementation PhotosTableViewController
 
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
+    if (self) {
+        self.tabBarItem.title = @"My Photos";
+        
+        UIImage *i = [UIImage imageNamed:@"stack_of_photos-32"];
+        self.tabBarItem.image = i;
+    }
+    
+    return self;
+}
+
 - (void)fetchPhotos {
-    NSString *requestString = [NSString stringWithFormat:@"http://localhost:3000/api/v1/photos?user_email=%@&user_token=%@", [self.authInfo objectForKey:@"email"], [self.authInfo objectForKey:@"authentication_token"]];
+    NSString *requestString = [NSString stringWithFormat:@"http://localhost:3000/api/v1/photos?user_email=%@&user_token=%@&page=1", [self.authInfo objectForKey:@"email"], [self.authInfo objectForKey:@"authentication_token"]];
     NSURL *url = [NSURL URLWithString:requestString];
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
