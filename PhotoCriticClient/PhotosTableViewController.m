@@ -56,7 +56,7 @@
     
     [self fetchPhotos];
     
-    self.tableView.contentInset = UIEdgeInsetsMake(20.0f, 0.0f, 0.0f, 0.0f);
+    self.tableView.contentInset = UIEdgeInsetsMake(20.0f, 0.0f, 50.0f, 0.0f);
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -90,20 +90,24 @@
     // Configure the cell...
     NSDictionary *photo = self.photos[indexPath.row];
     cell.titleLabel.text = photo[@"title"];
-    NSURL *url = [NSURL URLWithString:photo[@"thumbnail"]];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    UIImage *img = [[UIImage alloc] initWithData:data];
-    cell.thumbnailView.image = img;
+    if (photo[@"thumbnail"] != [NSNull null]) {
+        NSURL *url = [NSURL URLWithString:photo[@"thumbnail"]];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        UIImage *img = [[UIImage alloc] initWithData:data];
+        cell.thumbnailView.image = img;
+    }
     if (photo[@"critique"] != [NSNull null]) {
         cell.critiqueLabel.text = photo[@"critique"];
     }
     cell.actionBlock = ^{
         NSLog(@"showing image for ...");
-        NSURL *url = [NSURL URLWithString:photo[@"medium"]];
-        NSData *data = [NSData dataWithContentsOfURL:url];
-        UIImage *img = [[UIImage alloc] initWithData:data];
         PhotoDetailViewController *pdvc = [[PhotoDetailViewController alloc] init];
-        pdvc.uiimage = img;
+        if (photo[@"medium"] != [NSNull null]) {
+            NSURL *url = [NSURL URLWithString:photo[@"medium"]];
+            NSData *data = [NSData dataWithContentsOfURL:url];
+            UIImage *img = [[UIImage alloc] initWithData:data];
+            pdvc.uiimage = img;
+        }
         if (photo[@"critique"] != [NSNull null]) {
             NSLog(@"setting critique");
             pdvc.critique = photo[@"critique"];
@@ -117,6 +121,25 @@
 
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
     self.imagePopover = nil;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGPoint offset = scrollView.contentOffset;
+    CGRect bounds = scrollView.bounds;
+    CGSize size = scrollView.contentSize;
+    UIEdgeInsets inset = scrollView.contentInset;
+    float y = offset.y + bounds.size.height - inset.bottom;
+    float h = size.height;
+//    NSLog(@"offset: %f", offset.y);
+//    NSLog(@"content.height: %f", size.height);
+//    NSLog(@"bounds.height: %f", bounds.size.height);
+//    NSLog(@"inset.top: %f", inset.top);
+//    NSLog(@"inset.bottom: %f", inset.bottom);
+//    NSLog(@"pos: %f of %f", y, h);
+    float reload_distance = 10;
+    if (y > h + reload_distance) {
+        NSLog(@"load more rows");
+    }
 }
 
 /*
