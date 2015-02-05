@@ -13,6 +13,8 @@
 @interface PhotosTableViewController () <UIPopoverControllerDelegate>
 @property (nonatomic, strong) UIPopoverController *imagePopover;
 @property (nonatomic, copy) NSArray *photos;
+@property (nonatomic) BOOL isLoading;
+@property (nonatomic) int page;
 @end
 
 @implementation PhotosTableViewController
@@ -25,24 +27,36 @@
         
         UIImage *i = [UIImage imageNamed:@"stack_of_photos-32"];
         self.tabBarItem.image = i;
+        self.isLoading = NO;
+        self.page = 1;
+        self.photos = [[NSMutableArray alloc] init];
     }
     
     return self;
 }
 
 - (void)fetchPhotos {
-    NSString *requestString = [NSString stringWithFormat:@"http://localhost:3000/api/v1/photos?user_email=%@&user_token=%@&page=1", [self.authInfo objectForKey:@"email"], [self.authInfo objectForKey:@"authentication_token"]];
+    NSString *requestString = [NSString stringWithFormat:@"http://localhost:3000/api/v1/photos?user_email=%@&user_token=%@&page=%d", [self.authInfo objectForKey:@"email"], [self.authInfo objectForKey:@"authentication_token"], self.page];
     NSURL *url = [NSURL URLWithString:requestString];
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        self.photos = jsonObject[@"photos"];
+        if ([self.photos count] == 0) {
+            self.photos = jsonObject[@"photos"];
+        } else {
+            NSArray *newArray = [self.photos arrayByAddingObjectsFromArray:jsonObject[@"photos"]];
+            self.photos = newArray;
+        }
+//        [self.photos addObjectsFromArray:jsonObject[@"photos"]];
+        
+//        self.photos = jsonObject[@"photos"];
+        NSLog(@"%@", [jsonObject[@"photos"] class]);
         NSLog(@"%@", self.photos);
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
         });
-        
-                          }];
+        self.isLoading = NO;
+    }];
     [dataTask resume];
 }
 
@@ -124,21 +138,36 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     CGPoint offset = scrollView.contentOffset;
     CGRect bounds = scrollView.bounds;
     CGSize size = scrollView.contentSize;
     UIEdgeInsets inset = scrollView.contentInset;
     float y = offset.y + bounds.size.height - inset.bottom;
     float h = size.height;
-//    NSLog(@"offset: %f", offset.y);
-//    NSLog(@"content.height: %f", size.height);
-//    NSLog(@"bounds.height: %f", bounds.size.height);
-//    NSLog(@"inset.top: %f", inset.top);
-//    NSLog(@"inset.bottom: %f", inset.bottom);
-//    NSLog(@"pos: %f of %f", y, h);
+    //    NSLog(@"offset: %f", offset.y);
+    //    NSLog(@"content.height: %f", size.height);
+    //    NSLog(@"bounds.height: %f", bounds.size.height);
+    //    NSLog(@"inset.top: %f", inset.top);
+    //    NSLog(@"inset.bottom: %f", inset.bottom);
+    //    NSLog(@"pos: %f of %f", y, h);
     float reload_distance = 10;
     if (y > h + reload_distance) {
+        [self loadMore];
+    }
+}
+
+- (void)loadMore {
+    if (self.isLoading) {
+        NSLog(@"do nothing");
+    } else {
         NSLog(@"load more rows");
+        self.page += 1;
+        self.isLoading = YES;
+        [self fetchPhotos];
     }
 }
 
