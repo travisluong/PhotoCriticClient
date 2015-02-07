@@ -18,6 +18,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *backButton;
 @property (strong, nonatomic) IBOutlet UIButton *loadMoreButton;
 @property (nonatomic) int page;
+@property (strong, nonatomic) IBOutlet UILabel *totalLabel;
+@property (strong, nonatomic) NSNumber *total;
 @end
 
 @implementation PhotosTableViewController
@@ -55,13 +57,24 @@
         NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
 
         self.photos = jsonObject[@"photos"];
+//        self.total = jsonObject[@"meta"][@"total"];
+//        self.totalLabel.text = jsonObject[@"meta"][@"total"];
+
  
 //        [self.photos addObjectsFromArray:jsonObject[@"photos"]];
         
 //        self.photos = jsonObject[@"photos"];
-        NSLog(@"%@", [jsonObject[@"photos"] class]);
+//        NSLog(@"%@", [jsonObject[@"photos"] class]);
+        
+        
         NSLog(@"%@", self.photos);
+        NSLog(@"%@", jsonObject[@"meta"][@"total"]);
+        
+        self.total = jsonObject[@"meta"][@"total"];
+    
+        
         dispatch_async(dispatch_get_main_queue(), ^{
+            self.totalLabel.text = [self.total stringValue];
             [self.tableView reloadData];
             [self.activityIndicator stopAnimating];
         });
