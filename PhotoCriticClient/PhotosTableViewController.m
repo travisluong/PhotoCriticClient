@@ -137,28 +137,28 @@
     self.imagePopover = nil;
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//
+//}
 
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    CGPoint offset = scrollView.contentOffset;
-    CGRect bounds = scrollView.bounds;
-    CGSize size = scrollView.contentSize;
-    UIEdgeInsets inset = scrollView.contentInset;
-    float y = offset.y + bounds.size.height - inset.bottom;
-    float h = size.height;
-    //    NSLog(@"offset: %f", offset.y);
-    //    NSLog(@"content.height: %f", size.height);
-    //    NSLog(@"bounds.height: %f", bounds.size.height);
-    //    NSLog(@"inset.top: %f", inset.top);
-    //    NSLog(@"inset.bottom: %f", inset.bottom);
-    //    NSLog(@"pos: %f of %f", y, h);
-    float reload_distance = 10;
-    if (y > h + reload_distance) {
-        [self loadMore];
-    }
-}
+//- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+//    CGPoint offset = scrollView.contentOffset;
+//    CGRect bounds = scrollView.bounds;
+//    CGSize size = scrollView.contentSize;
+//    UIEdgeInsets inset = scrollView.contentInset;
+//    float y = offset.y + bounds.size.height - inset.bottom;
+//    float h = size.height;
+//    //    NSLog(@"offset: %f", offset.y);
+//    //    NSLog(@"content.height: %f", size.height);
+//    //    NSLog(@"bounds.height: %f", bounds.size.height);
+//    //    NSLog(@"inset.top: %f", inset.top);
+//    //    NSLog(@"inset.bottom: %f", inset.bottom);
+//    //    NSLog(@"pos: %f of %f", y, h);
+//    float reload_distance = 10;
+//    if (y > h + reload_distance) {
+//        [self loadMore];
+//    }
+//}
 
 - (void)loadMore {
     if (self.isLoading) {
@@ -169,6 +169,11 @@
         self.isLoading = YES;
         [self fetchPhotos];
     }
+}
+- (IBAction)loadMoreButtonClicked:(id)sender {
+    NSLog(@"Load more clicked");
+    self.page += 1;
+    [self fetchPhotos];
 }
 
 /*

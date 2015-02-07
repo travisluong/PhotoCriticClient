@@ -54,14 +54,14 @@
 - (void)setRoots {
     NSLog(@"%@", self.authInfo);
     NewPhotoViewController *npvc = [[NewPhotoViewController alloc] init];
-//    PhotosTableViewController *ptvc = [[PhotosTableViewController alloc] init];
-//    ptvc.authInfo = self.authInfo;
-//    ptvc.session = self.session;
-    PhotosListViewController *plvc = [[PhotosListViewController alloc] init];
-    plvc.authInfo = self.authInfo;
-    plvc.session = self.session;
+    PhotosTableViewController *ptvc = [[PhotosTableViewController alloc] init];
+    ptvc.authInfo = self.authInfo;
+    ptvc.session = self.session;
+//    PhotosListViewController *plvc = [[PhotosListViewController alloc] init];
+//    plvc.authInfo = self.authInfo;
+//    plvc.session = self.session;
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = @[plvc, npvc];
+    tabBarController.viewControllers = @[ptvc, npvc];
     self.window.rootViewController = tabBarController;
 }
 
