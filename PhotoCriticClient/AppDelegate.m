@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "NewPhotoViewController.h"
 #import "PhotosTableViewController.h"
+#import "PhotosListViewController.h"
 
 @interface AppDelegate ()
 
@@ -53,11 +54,14 @@
 - (void)setRoots {
     NSLog(@"%@", self.authInfo);
     NewPhotoViewController *npvc = [[NewPhotoViewController alloc] init];
-    PhotosTableViewController *ptvc = [[PhotosTableViewController alloc] init];
-    ptvc.authInfo = self.authInfo;
-    ptvc.session = self.session;
+//    PhotosTableViewController *ptvc = [[PhotosTableViewController alloc] init];
+//    ptvc.authInfo = self.authInfo;
+//    ptvc.session = self.session;
+    PhotosListViewController *plvc = [[PhotosListViewController alloc] init];
+    plvc.authInfo = self.authInfo;
+    plvc.session = self.session;
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = @[ptvc, npvc];
+    tabBarController.viewControllers = @[plvc, npvc];
     self.window.rootViewController = tabBarController;
 }
 

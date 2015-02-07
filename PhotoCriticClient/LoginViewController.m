@@ -55,9 +55,9 @@
         NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         NSString *auth_token = [jsonObject objectForKey:@"authentication_token"];
         NSString *user_email = [[jsonObject objectForKey:@"user"] objectForKey:@"email"];
-        NSLog(@"%@", user_email);
-        NSLog(@"%@", auth_token);
-        NSLog(@"%@", jsonObject);
+//        NSLog(@"%@", user_email);
+//        NSLog(@"%@", auth_token);
+//        NSLog(@"%@", jsonObject);
         NSLog(@"completionHandlerFinished");
         
         NSDictionary *authInfo = @{@"email": user_email, @"authentication_token": auth_token};
