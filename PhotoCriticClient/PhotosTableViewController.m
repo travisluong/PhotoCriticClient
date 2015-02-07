@@ -14,6 +14,7 @@
 @property (nonatomic, strong) UIPopoverController *imagePopover;
 @property (nonatomic, copy) NSArray *photos;
 @property (nonatomic) BOOL isLoading;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (nonatomic) int page;
 @end
 
@@ -36,17 +37,17 @@
 }
 
 - (void)fetchPhotos {
+    
+    [self.activityIndicator startAnimating];
+    
     NSString *requestString = [NSString stringWithFormat:@"http://localhost:3000/api/v1/photos?user_email=%@&user_token=%@&page=%d", [self.authInfo objectForKey:@"email"], [self.authInfo objectForKey:@"authentication_token"], self.page];
     NSURL *url = [NSURL URLWithString:requestString];
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        if ([self.photos count] == 0) {
-            self.photos = jsonObject[@"photos"];
-        } else {
-            NSArray *newArray = [self.photos arrayByAddingObjectsFromArray:jsonObject[@"photos"]];
-            self.photos = newArray;
-        }
+
+        self.photos = jsonObject[@"photos"];
+ 
 //        [self.photos addObjectsFromArray:jsonObject[@"photos"]];
         
 //        self.photos = jsonObject[@"photos"];
@@ -54,6 +55,7 @@
         NSLog(@"%@", self.photos);
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
+            [self.activityIndicator stopAnimating];
         });
         self.isLoading = NO;
     }];
@@ -62,7 +64,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.activityIndicator.hidesWhenStopped = YES;
 //    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     UINib *nib = [UINib nibWithNibName:@"PhotoTableViewCell" bundle:nil];
     
