@@ -7,6 +7,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotosTableViewController">
             <connections>
                 <outlet property="activityIndicator" destination="xkG-rr-83A" id="WP8-Ad-Zhj"/>
+                <outlet property="backButton" destination="DIH-v0-t5I" id="xDb-kd-Ora"/>
+                <outlet property="loadMoreButton" destination="ZRc-Lr-4aF" id="PEy-Fm-kl8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,7 +22,9 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZRc-Lr-4aF">
-                        <rect key="frame" x="142" y="8" width="74" height="30"/>
+                        <rect key="frame" x="93" y="10" width="94" height="30"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <state key="normal" title="Load More">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
@@ -28,8 +32,19 @@
                             <action selector="loadMoreButtonClicked:" destination="-1" eventType="touchUpInside" id="11T-dO-75T"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIH-v0-t5I">
+                        <rect key="frame" x="22" y="10" width="50" height="30"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <state key="normal" title="Back">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="backButtonClicked:" destination="-1" eventType="touchUpInside" id="u2f-l7-R25"/>
+                        </connections>
+                    </button>
                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="xkG-rr-83A">
-                        <rect key="frame" x="99" y="13" width="20" height="20"/>
+                        <rect key="frame" x="217" y="15" width="20" height="20"/>
                     </activityIndicatorView>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

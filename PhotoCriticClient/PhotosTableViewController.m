@@ -15,6 +15,8 @@
 @property (nonatomic, copy) NSArray *photos;
 @property (nonatomic) BOOL isLoading;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) IBOutlet UIButton *backButton;
+@property (strong, nonatomic) IBOutlet UIButton *loadMoreButton;
 @property (nonatomic) int page;
 @end
 
@@ -39,6 +41,12 @@
 - (void)fetchPhotos {
     
     [self.activityIndicator startAnimating];
+    
+    if (self.page > 1) {
+        self.backButton.hidden = NO;
+    } else {
+        self.backButton.hidden = YES;
+    }
     
     NSString *requestString = [NSString stringWithFormat:@"http://localhost:3000/api/v1/photos?user_email=%@&user_token=%@&page=%d", [self.authInfo objectForKey:@"email"], [self.authInfo objectForKey:@"authentication_token"], self.page];
     NSURL *url = [NSURL URLWithString:requestString];
@@ -73,6 +81,11 @@
     [self fetchPhotos];
     
     self.tableView.contentInset = UIEdgeInsetsMake(20.0f, 0.0f, 50.0f, 0.0f);
+    
+    self.backButton.hidden = YES;
+    self.backButton.layer.cornerRadius = 10;
+    self.loadMoreButton.layer.cornerRadius = 10;
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -175,6 +188,11 @@
 - (IBAction)loadMoreButtonClicked:(id)sender {
     NSLog(@"Load more clicked");
     self.page += 1;
+    [self fetchPhotos];
+}
+
+- (IBAction)backButtonClicked:(id)sender {
+    self.page -= 1;
     [self fetchPhotos];
 }
 
