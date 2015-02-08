@@ -18,7 +18,9 @@
     [super viewWillAppear:animated];
     
     self.image.image = self.uiimage;
-    self.critiqueLabel.text = self.critique;
+    if (self.critique) {
+         self.critiqueLabel.text = self.critique;   
+    }
 }
 
 - (void)viewDidLoad {
