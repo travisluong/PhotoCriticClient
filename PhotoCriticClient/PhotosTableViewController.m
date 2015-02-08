@@ -71,12 +71,18 @@
         NSLog(@"%@", jsonObject[@"meta"][@"total"]);
         
         self.total = jsonObject[@"meta"][@"total"];
-    
         
         dispatch_async(dispatch_get_main_queue(), ^{
             self.totalLabel.text = [self.total stringValue];
             [self.tableView reloadData];
             [self.activityIndicator stopAnimating];
+            if ([self.total intValue ] > self.page * 20) {
+                NSLog(@"Not last page");
+                self.loadMoreButton.hidden = NO;
+            } else {
+                NSLog(@"Last page");
+                self.loadMoreButton.hidden = YES;
+            }
         });
         self.isLoading = NO;
     }];
