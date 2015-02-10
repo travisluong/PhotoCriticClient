@@ -19,7 +19,7 @@
     
     self.image.image = self.uiimage;
     if (self.critique) {
-         self.critiqueLabel.text = self.critique;   
+         self.critiqueLabel.text = self.critique;
     }
 }
 

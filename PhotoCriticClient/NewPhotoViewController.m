@@ -37,6 +37,28 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)buttonClicked:(id)sender {
+    UIAlertController *avc = [[UIAlertController alloc] init];
+    
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"foo" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSLog(@"action handler");
+    }];
+    
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"bar" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSLog(@"action handler");
+    }];
+    
+    UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"baz" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSLog(@"action handler");
+    }];
+    
+    [avc addAction:action];
+    [avc addAction:action2];
+    [avc addAction:action3];
+    
+    [self presentViewController:avc animated:YES completion:nil];
+}
+
 /*
 #pragma mark - Navigation
 
