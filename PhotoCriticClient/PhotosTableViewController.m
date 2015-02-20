@@ -160,6 +160,10 @@
             NSLog(@"setting critique");
             pdvc.critique = photo[@"critique"];
         }
+        if (photo[@"title"] != [NSNull null]) {
+            NSLog(@"setting title");
+            pdvc.photoTitle = photo[@"title"];
+        }
         [self presentViewController:pdvc animated:YES completion:^{
             
         }];

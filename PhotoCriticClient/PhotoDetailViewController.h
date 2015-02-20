@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface PhotoDetailViewController : UIViewController
+@property (strong, nonatomic) NSString *photoTitle;
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *image;
 @property (strong, nonatomic) UIImage *uiimage;
 @property (strong, nonatomic) IBOutlet UILabel *critiqueLabel;

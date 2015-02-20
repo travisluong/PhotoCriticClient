@@ -21,6 +21,9 @@
     if (self.critique) {
          self.critiqueLabel.text = self.critique;
     }
+    if (self.photoTitle) {
+        self.titleLabel.text = self.photoTitle;
+    }
 }
 
 - (void)viewDidLoad {
