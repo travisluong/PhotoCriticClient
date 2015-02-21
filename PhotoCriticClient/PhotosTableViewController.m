@@ -9,12 +9,12 @@
 #import "PhotosTableViewController.h"
 #import "PhotoTableViewCell.h"
 #import "PhotoDetailViewController.h"
+#import "ProgressViewController.h"
 
 @interface PhotosTableViewController () <UIPopoverControllerDelegate>
 @property (nonatomic, strong) UIPopoverController *imagePopover;
 @property (nonatomic, copy) NSArray *photos;
 @property (nonatomic) BOOL isLoading;
-@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) IBOutlet UIButton *backButton;
 @property (strong, nonatomic) IBOutlet UIButton *loadMoreButton;
 @property (nonatomic) int page;
@@ -42,7 +42,9 @@
 
 - (void)fetchPhotos {
     
-    [self.activityIndicator startAnimating];
+    ProgressViewController *pvc = [[ProgressViewController alloc] init];
+    
+    [self.view addSubview:pvc.view];
     
     if (self.page > 1) {
         self.backButton.hidden = NO;
@@ -75,7 +77,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             self.totalLabel.text = [self.total stringValue];
             [self.tableView reloadData];
-            [self.activityIndicator stopAnimating];
+            [pvc.view removeFromSuperview];
             if ([self.total intValue ] > self.page * 20) {
                 NSLog(@"Not last page");
                 self.loadMoreButton.hidden = NO;
@@ -91,7 +93,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.activityIndicator.hidesWhenStopped = YES;
+
 //    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     UINib *nib = [UINib nibWithNibName:@"PhotoTableViewCell" bundle:nil];
     
