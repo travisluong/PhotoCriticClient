@@ -219,6 +219,11 @@
     [self fetchPhotos];
 }
 
+- (IBAction)refreshButtonClicked:(id)sender {
+    [self fetchPhotos];
+}
+
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

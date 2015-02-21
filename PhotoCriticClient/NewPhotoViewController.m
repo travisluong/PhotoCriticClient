@@ -11,6 +11,7 @@
 
 @interface NewPhotoViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UIButton *submitButton;
 
 @end
 
@@ -31,6 +32,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.submitButton.hidden = YES;
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -79,6 +81,7 @@
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     
     self.imageView.image = image;
+    self.submitButton.hidden = NO;
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

@@ -13,6 +13,7 @@
 		CA3F2CEF1A8443190043E7A4 /* PhotosListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA3F2CED1A8443190043E7A4 /* PhotosListViewController.xib */; };
 		CA57E0CF1A7C4F950037E9A9 /* PhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA57E0CD1A7C4F950037E9A9 /* PhotoTableViewCell.m */; };
 		CA57E0D01A7C4F950037E9A9 /* PhotoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA57E0CE1A7C4F950037E9A9 /* PhotoTableViewCell.xib */; };
+		CA95BDC91A9843B30042AC67 /* Update-32.png in Resources */ = {isa = PBXBuildFile; fileRef = CA95BDC81A9843B30042AC67 /* Update-32.png */; };
 		CAB6C3051A707A0C0004C090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB6C3041A707A0C0004C090 /* main.m */; };
 		CAB6C3081A707A0C0004C090 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB6C3071A707A0C0004C090 /* AppDelegate.m */; };
 		CAB6C30B1A707A0C0004C090 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB6C30A1A707A0C0004C090 /* ViewController.m */; };
@@ -49,6 +50,7 @@
 		CA57E0CC1A7C4F950037E9A9 /* PhotoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoTableViewCell.h; sourceTree = "<group>"; };
 		CA57E0CD1A7C4F950037E9A9 /* PhotoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTableViewCell.m; sourceTree = "<group>"; };
 		CA57E0CE1A7C4F950037E9A9 /* PhotoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoTableViewCell.xib; sourceTree = "<group>"; };
+		CA95BDC81A9843B30042AC67 /* Update-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Update-32.png"; sourceTree = "<group>"; };
 		CAB6C2FF1A707A0C0004C090 /* PhotoCriticClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoCriticClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB6C3031A707A0C0004C090 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAB6C3041A707A0C0004C090 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 		CA0A3E5B1A81966900330F67 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				CA95BDC81A9843B30042AC67 /* Update-32.png */,
 				CA0A3E5C1A81976A00330F67 /* stack_of_photos-32.png */,
 				CA0A3E591A81964600330F67 /* camera-32.png */,
 			);
@@ -266,6 +269,7 @@
 				CAB6C30E1A707A0C0004C090 /* Main.storyboard in Resources */,
 				CAB6C3131A707A0C0004C090 /* LaunchScreen.xib in Resources */,
 				CAD0757B1A7853C400AE184B /* PhotosTableViewController.xib in Resources */,
+				CA95BDC91A9843B30042AC67 /* Update-32.png in Resources */,
 				CA0A3E5D1A81976A00330F67 /* stack_of_photos-32.png in Resources */,
 				CAC8287F1A805C76003FB285 /* PhotoDetailViewController.xib in Resources */,
 				CAB6C3101A707A0C0004C090 /* Images.xcassets in Resources */,

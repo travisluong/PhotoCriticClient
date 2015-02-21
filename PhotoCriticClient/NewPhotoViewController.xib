@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewPhotoViewController">
             <connections>
                 <outlet property="imageView" destination="q04-ts-b2B" id="hc4-Fs-qOs"/>
+                <outlet property="submitButton" destination="n8C-og-HiU" id="BcC-cL-v7M"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
