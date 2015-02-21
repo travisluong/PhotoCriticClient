@@ -69,8 +69,8 @@
 //        NSLog(@"%@", [jsonObject[@"photos"] class]);
         
         
-        NSLog(@"%@", self.photos);
-        NSLog(@"%@", jsonObject[@"meta"][@"total"]);
+//        NSLog(@"%@", self.photos);
+//        NSLog(@"%@", jsonObject[@"meta"][@"total"]);
         
         self.total = jsonObject[@"meta"][@"total"];
         
@@ -79,10 +79,10 @@
             [self.tableView reloadData];
             [pvc.view removeFromSuperview];
             if ([self.total intValue ] > self.page * 20) {
-                NSLog(@"Not last page");
+//                NSLog(@"Not last page");
                 self.loadMoreButton.hidden = NO;
             } else {
-                NSLog(@"Last page");
+//                NSLog(@"Last page");
                 self.loadMoreButton.hidden = YES;
             }
         });
@@ -150,7 +150,7 @@
         cell.critiqueLabel.text = photo[@"critique"];
     }
     cell.actionBlock = ^{
-        NSLog(@"showing image for ...");
+//        NSLog(@"showing image for ...");
         PhotoDetailViewController *pdvc = [[PhotoDetailViewController alloc] init];
         if (photo[@"medium"] != [NSNull null]) {
             NSURL *url = [NSURL URLWithString:photo[@"medium"]];
@@ -159,11 +159,11 @@
             pdvc.uiimage = img;
         }
         if (photo[@"critique"] != [NSNull null]) {
-            NSLog(@"setting critique");
+//            NSLog(@"setting critique");
             pdvc.critique = photo[@"critique"];
         }
         if (photo[@"title"] != [NSNull null]) {
-            NSLog(@"setting title");
+//            NSLog(@"setting title");
             pdvc.photoTitle = photo[@"title"];
         }
         [self presentViewController:pdvc animated:YES completion:^{
@@ -202,16 +202,16 @@
 
 - (void)loadMore {
     if (self.isLoading) {
-        NSLog(@"do nothing");
+//        NSLog(@"do nothing");
     } else {
-        NSLog(@"load more rows");
+//        NSLog(@"load more rows");
         self.page += 1;
         self.isLoading = YES;
         [self fetchPhotos];
     }
 }
 - (IBAction)loadMoreButtonClicked:(id)sender {
-    NSLog(@"Load more clicked");
+//    NSLog(@"Load more clicked");
     self.page += 1;
     [self fetchPhotos];
 }
