@@ -9,7 +9,6 @@
 #import "ProgressViewController.h"
 
 @interface ProgressViewController ()
-@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -18,9 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    self.activityIndicator.center = [self.view convertPoint:self.view.center fromView:self.view.superview];
-    
+    self.activityIndicator.frame = CGRectMake(75, 75, 30, 30);
+    self.activityIndicator.center = CGPointMake(100, 100);
     [self.activityIndicator startAnimating];
     
 }

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ProgressViewController : UIViewController
-
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @end
