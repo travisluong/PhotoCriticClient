@@ -45,6 +45,7 @@
     ProgressViewController *pvc = [[ProgressViewController alloc] init];
 
     [self.view addSubview:pvc.view];
+    [self.view bringSubviewToFront:pvc.view];
 
     pvc.view.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
     
