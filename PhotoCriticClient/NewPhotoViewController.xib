@@ -6,7 +6,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewPhotoViewController">
             <connections>
-                <outlet property="activityIndicator" destination="ope-Aq-tMM" id="8Py-IX-Oq2"/>
                 <outlet property="imageView" destination="q04-ts-b2B" id="hc4-Fs-qOs"/>
                 <outlet property="submitButton" destination="n8C-og-HiU" id="BcC-cL-v7M"/>
                 <outlet property="submittedMessage" destination="ajq-gl-7o9" id="M6P-ad-01Q"/>
@@ -51,16 +50,13 @@
                         <action selector="submit:" destination="-1" eventType="touchUpInside" id="RkL-Cb-qZy"/>
                     </connections>
                 </button>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ope-Aq-tMM">
-                    <rect key="frame" x="32" y="438" width="20" height="20"/>
-                </activityIndicatorView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your image has been submitted." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajq-gl-7o9">
                     <rect key="frame" x="32" y="197" width="248" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q04-ts-b2B">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q04-ts-b2B">
                     <rect key="frame" x="32" y="245" width="240" height="128"/>
                 </imageView>
             </subviews>

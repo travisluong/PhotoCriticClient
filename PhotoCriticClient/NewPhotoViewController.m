@@ -12,7 +12,6 @@
 @interface NewPhotoViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UIButton *submitButton;
-@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) IBOutlet UILabel *submittedMessage;
 
 @end
@@ -35,7 +34,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.submitButton.hidden = YES;
-    self.activityIndicator.hidesWhenStopped = YES;
     self.submittedMessage.hidden = YES;
     // Do any additional setup after loading the view from its nib.
 }
@@ -68,6 +66,7 @@
 }
 
 - (IBAction)takePicture:(id)sender {
+    self.submittedMessage.hidden = YES;
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
     
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
@@ -91,7 +90,21 @@
 }
 
 - (IBAction)submit:(id)sender {
-    [self.activityIndicator startAnimating];
+    
+    UIView *mask = [[UIView alloc] initWithFrame:self.view.frame];
+    
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] init];
+    
+    indicator.frame = self.view.frame;
+    
+    [indicator startAnimating];
+    
+    [mask addSubview:indicator];
+    
+    [mask setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.78]];
+    
+    [self.view addSubview:mask];
+    
     AppDelegate *app = [UIApplication sharedApplication].delegate;
 //
 //    NSData *imageData = UIImagePNGRepresentation(self.imageView.image);
@@ -171,10 +184,10 @@
     NSURLSessionDataTask *dataTask = [app.session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSLog(@"%@", data);
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.activityIndicator stopAnimating];
             self.imageView.image = nil;
             self.submittedMessage.hidden = NO;
             self.submitButton.hidden = YES;
+            [mask removeFromSuperview];
         });
 
     }];
