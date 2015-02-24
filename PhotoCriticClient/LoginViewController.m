@@ -40,7 +40,7 @@
 }
 
 - (IBAction)signIn:(id)sender {
-//    NSLog(@"%@, %@", self.username.text, self.password.text);
+    NSLog(@"%@, %@", self.username.text, self.password.text);
     NSString *requestString = @"http://localhost:3000/api/v1/sessions/create.json";
     NSURL *url = [NSURL URLWithString:requestString];
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
@@ -58,7 +58,7 @@
 //        NSLog(@"%@", user_email);
 //        NSLog(@"%@", auth_token);
 //        NSLog(@"%@", jsonObject);
-//        NSLog(@"completionHandlerFinished");
+        NSLog(@"completionHandlerFinished");
         
         NSDictionary *authInfo = @{@"email": user_email, @"authentication_token": auth_token};
         
@@ -72,7 +72,7 @@
     }];
 
     [dataTask resume];
-//    NSLog(@"signInFinished");
+    NSLog(@"signInFinished");
 }
 
 

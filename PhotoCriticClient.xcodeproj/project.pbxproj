@@ -14,8 +14,6 @@
 		CA57E0CF1A7C4F950037E9A9 /* PhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA57E0CD1A7C4F950037E9A9 /* PhotoTableViewCell.m */; };
 		CA57E0D01A7C4F950037E9A9 /* PhotoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA57E0CE1A7C4F950037E9A9 /* PhotoTableViewCell.xib */; };
 		CA95BDC91A9843B30042AC67 /* Update-32.png in Resources */ = {isa = PBXBuildFile; fileRef = CA95BDC81A9843B30042AC67 /* Update-32.png */; };
-		CA95BDD91A984FFC0042AC67 /* ProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA95BDD71A984FFC0042AC67 /* ProgressViewController.m */; };
-		CA95BDDA1A984FFC0042AC67 /* ProgressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA95BDD81A984FFC0042AC67 /* ProgressViewController.xib */; };
 		CAB6C3051A707A0C0004C090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB6C3041A707A0C0004C090 /* main.m */; };
 		CAB6C3081A707A0C0004C090 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB6C3071A707A0C0004C090 /* AppDelegate.m */; };
 		CAB6C30B1A707A0C0004C090 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB6C30A1A707A0C0004C090 /* ViewController.m */; };
@@ -53,9 +51,6 @@
 		CA57E0CD1A7C4F950037E9A9 /* PhotoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTableViewCell.m; sourceTree = "<group>"; };
 		CA57E0CE1A7C4F950037E9A9 /* PhotoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoTableViewCell.xib; sourceTree = "<group>"; };
 		CA95BDC81A9843B30042AC67 /* Update-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Update-32.png"; sourceTree = "<group>"; };
-		CA95BDD61A984FFC0042AC67 /* ProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressViewController.h; sourceTree = "<group>"; };
-		CA95BDD71A984FFC0042AC67 /* ProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressViewController.m; sourceTree = "<group>"; };
-		CA95BDD81A984FFC0042AC67 /* ProgressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressViewController.xib; sourceTree = "<group>"; };
 		CAB6C2FF1A707A0C0004C090 /* PhotoCriticClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoCriticClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB6C3031A707A0C0004C090 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAB6C3041A707A0C0004C090 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -159,9 +154,6 @@
 				CAB6C3021A707A0C0004C090 /* Supporting Files */,
 				CAB6C3091A707A0C0004C090 /* ViewController.h */,
 				CAB6C30A1A707A0C0004C090 /* ViewController.m */,
-				CA95BDD61A984FFC0042AC67 /* ProgressViewController.h */,
-				CA95BDD71A984FFC0042AC67 /* ProgressViewController.m */,
-				CA95BDD81A984FFC0042AC67 /* ProgressViewController.xib */,
 			);
 			path = PhotoCriticClient;
 			sourceTree = "<group>";
@@ -274,7 +266,6 @@
 			files = (
 				CAD075801A78540900AE184B /* NewPhotoViewController.xib in Resources */,
 				CAB6C32C1A7080480004C090 /* LoginViewController.xib in Resources */,
-				CA95BDDA1A984FFC0042AC67 /* ProgressViewController.xib in Resources */,
 				CAB6C30E1A707A0C0004C090 /* Main.storyboard in Resources */,
 				CAB6C3131A707A0C0004C090 /* LaunchScreen.xib in Resources */,
 				CAD0757B1A7853C400AE184B /* PhotosTableViewController.xib in Resources */,
@@ -307,7 +298,6 @@
 				CAD0757F1A78540900AE184B /* NewPhotoViewController.m in Sources */,
 				CAC8287E1A805C76003FB285 /* PhotoDetailViewController.m in Sources */,
 				CA57E0CF1A7C4F950037E9A9 /* PhotoTableViewCell.m in Sources */,
-				CA95BDD91A984FFC0042AC67 /* ProgressViewController.m in Sources */,
 				CAB6C30B1A707A0C0004C090 /* ViewController.m in Sources */,
 				CA3F2CEE1A8443190043E7A4 /* PhotosListViewController.m in Sources */,
 				CAB6C3081A707A0C0004C090 /* AppDelegate.m in Sources */,

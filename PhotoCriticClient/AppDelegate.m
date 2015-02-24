@@ -52,7 +52,7 @@
 }
 
 - (void)setRoots {
-//    NSLog(@"%@", self.authInfo);
+    NSLog(@"%@", self.authInfo);
     NewPhotoViewController *npvc = [[NewPhotoViewController alloc] init];
     PhotosTableViewController *ptvc = [[PhotosTableViewController alloc] init];
     ptvc.authInfo = self.authInfo;

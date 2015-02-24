@@ -9,12 +9,12 @@
 #import "PhotosTableViewController.h"
 #import "PhotoTableViewCell.h"
 #import "PhotoDetailViewController.h"
-#import "ProgressViewController.h"
 
 @interface PhotosTableViewController () <UIPopoverControllerDelegate>
 @property (nonatomic, strong) UIPopoverController *imagePopover;
 @property (nonatomic, copy) NSArray *photos;
 @property (nonatomic) BOOL isLoading;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) IBOutlet UIButton *backButton;
 @property (strong, nonatomic) IBOutlet UIButton *loadMoreButton;
 @property (nonatomic) int page;
@@ -42,12 +42,7 @@
 
 - (void)fetchPhotos {
     
-    ProgressViewController *pvc = [[ProgressViewController alloc] init];
-
-    [self.view addSubview:pvc.view];
-    [self.view bringSubviewToFront:pvc.view];
-
-    pvc.view.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
+    [self.activityIndicator startAnimating];
     
     if (self.page > 1) {
         self.backButton.hidden = NO;
@@ -72,20 +67,20 @@
 //        NSLog(@"%@", [jsonObject[@"photos"] class]);
         
         
-//        NSLog(@"%@", self.photos);
-//        NSLog(@"%@", jsonObject[@"meta"][@"total"]);
+        NSLog(@"%@", self.photos);
+        NSLog(@"%@", jsonObject[@"meta"][@"total"]);
         
         self.total = jsonObject[@"meta"][@"total"];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             self.totalLabel.text = [self.total stringValue];
             [self.tableView reloadData];
-            [pvc.view removeFromSuperview];
+            [self.activityIndicator stopAnimating];
             if ([self.total intValue ] > self.page * 20) {
-//                NSLog(@"Not last page");
+                NSLog(@"Not last page");
                 self.loadMoreButton.hidden = NO;
             } else {
-//                NSLog(@"Last page");
+                NSLog(@"Last page");
                 self.loadMoreButton.hidden = YES;
             }
         });
@@ -96,7 +91,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.activityIndicator.hidesWhenStopped = YES;
 //    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     UINib *nib = [UINib nibWithNibName:@"PhotoTableViewCell" bundle:nil];
     
@@ -153,7 +148,7 @@
         cell.critiqueLabel.text = photo[@"critique"];
     }
     cell.actionBlock = ^{
-//        NSLog(@"showing image for ...");
+        NSLog(@"showing image for ...");
         PhotoDetailViewController *pdvc = [[PhotoDetailViewController alloc] init];
         if (photo[@"medium"] != [NSNull null]) {
             NSURL *url = [NSURL URLWithString:photo[@"medium"]];
@@ -162,11 +157,11 @@
             pdvc.uiimage = img;
         }
         if (photo[@"critique"] != [NSNull null]) {
-//            NSLog(@"setting critique");
+            NSLog(@"setting critique");
             pdvc.critique = photo[@"critique"];
         }
         if (photo[@"title"] != [NSNull null]) {
-//            NSLog(@"setting title");
+            NSLog(@"setting title");
             pdvc.photoTitle = photo[@"title"];
         }
         [self presentViewController:pdvc animated:YES completion:^{
@@ -205,16 +200,16 @@
 
 - (void)loadMore {
     if (self.isLoading) {
-//        NSLog(@"do nothing");
+        NSLog(@"do nothing");
     } else {
-//        NSLog(@"load more rows");
+        NSLog(@"load more rows");
         self.page += 1;
         self.isLoading = YES;
         [self fetchPhotos];
     }
 }
 - (IBAction)loadMoreButtonClicked:(id)sender {
-//    NSLog(@"Load more clicked");
+    NSLog(@"Load more clicked");
     self.page += 1;
     [self fetchPhotos];
 }
