@@ -24,9 +24,7 @@
     // Override point for customization after application launch.
     LoginViewController *lvc = [[LoginViewController alloc] init];
     
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:lvc];
-    
-    self.window.rootViewController = navController;
+    self.window.rootViewController = lvc;
     return YES;
 }
 

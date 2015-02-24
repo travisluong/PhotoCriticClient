@@ -44,9 +44,7 @@
     app.authInfo = nil;
     LoginViewController *lvc = [[LoginViewController alloc] init];
     
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:lvc];
-    
-    app.window.rootViewController = navController;
+    app.window.rootViewController = lvc;
 }
 
 
