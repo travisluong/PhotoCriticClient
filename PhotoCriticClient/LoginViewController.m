@@ -52,23 +52,35 @@
     [req addValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [req addValue:@"application/json" forHTTPHeaderField:@"Content-type"];
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        NSString *auth_token = [jsonObject objectForKey:@"authentication_token"];
-        NSString *user_email = [[jsonObject objectForKey:@"user"] objectForKey:@"email"];
-//        NSLog(@"%@", user_email);
-//        NSLog(@"%@", auth_token);
-//        NSLog(@"%@", jsonObject);
-        NSLog(@"completionHandlerFinished");
-        
-        NSDictionary *authInfo = @{@"email": user_email, @"authentication_token": auth_token};
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            AppDelegate *app = [UIApplication sharedApplication].delegate;
-            app.authInfo = authInfo;
-            app.session = self.session;
-            [app setRoots];
-        });
-        
+        NSLog(@"%@", error);
+        if (!error) {
+            NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+            NSString *auth_token = [jsonObject objectForKey:@"authentication_token"];
+            NSString *user_email = [[jsonObject objectForKey:@"user"] objectForKey:@"email"];
+            //        NSLog(@"%@", user_email);
+            //        NSLog(@"%@", auth_token);
+            //        NSLog(@"%@", jsonObject);
+            NSLog(@"completionHandlerFinished");
+            
+            NSDictionary *authInfo = @{@"email": user_email, @"authentication_token": auth_token};
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                AppDelegate *app = [UIApplication sharedApplication].delegate;
+                app.authInfo = authInfo;
+                app.session = self.session;
+                [app setRoots];
+            });
+        } else {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"There was an error." preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                
+            }];
+            
+            [alert addAction:defaultAction];
+            
+            [self presentViewController:alert animated:YES completion:nil];
+        }
     }];
 
     [dataTask resume];
