@@ -50,6 +50,8 @@
 - (void)fetchPhotos {
     CGRect maskFrame = CGRectMake(self.view.frame.origin.x, self.scrollY, self.view.frame.size.width, self.view.frame.size.height);
     
+    NSLog(@"MASKFRAME WIDTH: %f", maskFrame.size.width);
+    
     UIView *mask = [[UIView alloc] initWithFrame:maskFrame];
     
     UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] init];
@@ -111,6 +113,10 @@
     [dataTask resume];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [self fetchPhotos];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.activityIndicator.hidesWhenStopped = YES;
@@ -118,8 +124,6 @@
     UINib *nib = [UINib nibWithNibName:@"PhotoTableViewCell" bundle:nil];
     
     [self.tableView registerNib:nib forCellReuseIdentifier:@"PhotoTableViewCell"];
-    
-    [self fetchPhotos];
     
     self.tableView.contentInset = UIEdgeInsetsMake(20.0f, 0.0f, 50.0f, 0.0f);
     
