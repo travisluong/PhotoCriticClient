@@ -21,6 +21,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *totalLabel;
 @property (strong, nonatomic) NSNumber *total;
 @property (nonatomic) CGFloat scrollY;
+@property (nonatomic) BOOL loaded;
 @end
 
 @implementation PhotosTableViewController
@@ -37,6 +38,7 @@
         self.page = 1;
         self.photos = [[NSMutableArray alloc] init];
         self.scrollY = 0.0;
+        self.loaded = NO;
     }
     
     return self;
@@ -49,8 +51,6 @@
 
 - (void)fetchPhotos {
     CGRect maskFrame = CGRectMake(self.view.frame.origin.x, self.scrollY, self.view.frame.size.width, self.view.frame.size.height);
-    
-    NSLog(@"MASKFRAME WIDTH: %f", maskFrame.size.width);
     
     UIView *mask = [[UIView alloc] initWithFrame:maskFrame];
     
@@ -112,11 +112,12 @@
     }];
     [dataTask resume];
 }
-
-- (void)viewDidAppear:(BOOL)animated {
-    [self fetchPhotos];
+- (void)viewWillAppear:(BOOL)animated {
+    if (!self.loaded) {
+        [self fetchPhotos];
+        self.loaded = YES;
+    }
 }
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.activityIndicator.hidesWhenStopped = YES;
@@ -174,6 +175,23 @@
         cell.critiqueLabel.text = photo[@"critique"];
     }
     cell.actionBlock = ^{
+        
+        CGRect maskFrame = CGRectMake(self.view.frame.origin.x, self.scrollY, self.view.frame.size.width, self.view.frame.size.height);
+        
+        UIView *mask = [[UIView alloc] initWithFrame:maskFrame];
+        
+        UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] init];
+        
+        indicator.frame = self.view.frame;
+        NSLog(@"%f", self.scrollY);
+        [indicator startAnimating];
+        
+        [mask addSubview:indicator];
+        
+        [mask setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.78]];
+        
+        [self.view addSubview:mask];
+        
         NSLog(@"showing image for ...");
         PhotoDetailViewController *pdvc = [[PhotoDetailViewController alloc] init];
         if (photo[@"medium"] != [NSNull null]) {
@@ -191,7 +209,7 @@
             pdvc.photoTitle = photo[@"title"];
         }
         [self presentViewController:pdvc animated:YES completion:^{
-            
+            [mask removeFromSuperview];
         }];
     };
     return cell;
