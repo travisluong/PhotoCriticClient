@@ -87,6 +87,10 @@
     NSLog(@"signInFinished");
 }
 
+- (IBAction)signUpClicked:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://photocritic.herokuapp.com/users/sign_up"]];
+}
+
 
 /*
 #pragma mark - Navigation
