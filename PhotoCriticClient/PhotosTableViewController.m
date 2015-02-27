@@ -54,7 +54,7 @@
     
     UIView *mask = [[UIView alloc] initWithFrame:maskFrame];
     
-    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] init];
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     
     indicator.frame = self.view.frame;
     NSLog(@"%f", self.scrollY);
@@ -180,7 +180,7 @@
         
         UIView *mask = [[UIView alloc] initWithFrame:maskFrame];
         
-        UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] init];
+        UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         
         indicator.frame = self.view.frame;
         NSLog(@"%f", self.scrollY);
