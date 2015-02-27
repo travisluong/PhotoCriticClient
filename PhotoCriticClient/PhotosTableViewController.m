@@ -20,6 +20,7 @@
 @property (nonatomic) int page;
 @property (strong, nonatomic) IBOutlet UILabel *totalLabel;
 @property (strong, nonatomic) NSNumber *total;
+@property (nonatomic) CGFloat scrollY;
 @end
 
 @implementation PhotosTableViewController
@@ -35,13 +36,33 @@
         self.isLoading = NO;
         self.page = 1;
         self.photos = [[NSMutableArray alloc] init];
+        self.scrollY = 0.0;
     }
     
     return self;
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    self.scrollY = scrollView.contentOffset.y;
+    NSLog(@"%f", self.scrollY);
+}
+
 - (void)fetchPhotos {
+    CGRect maskFrame = CGRectMake(self.view.frame.origin.x, self.scrollY, self.view.frame.size.width, self.view.frame.size.height);
     
+    UIView *mask = [[UIView alloc] initWithFrame:maskFrame];
+    
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] init];
+    
+    indicator.frame = self.view.frame;
+    NSLog(@"%f", self.scrollY);
+    [indicator startAnimating];
+    
+    [mask addSubview:indicator];
+    
+    [mask setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.78]];
+    
+    [self.view addSubview:mask];
     [self.activityIndicator startAnimating];
     
     if (self.page > 1) {
@@ -67,14 +88,15 @@
 //        NSLog(@"%@", [jsonObject[@"photos"] class]);
         
         
-        NSLog(@"%@", self.photos);
-        NSLog(@"%@", jsonObject[@"meta"][@"total"]);
+//        NSLog(@"%@", self.photos);
+//        NSLog(@"%@", jsonObject[@"meta"][@"total"]);
         
         self.total = jsonObject[@"meta"][@"total"];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             self.totalLabel.text = [self.total stringValue];
             [self.tableView reloadData];
+            [mask removeFromSuperview];
             [self.activityIndicator stopAnimating];
             if ([self.total intValue ] > self.page * 20) {
                 NSLog(@"Not last page");
