@@ -158,6 +158,44 @@
     return [self.photos count];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    CGRect maskFrame = CGRectMake(self.view.frame.origin.x, self.scrollY, self.view.frame.size.width, self.view.frame.size.height);
+    
+    UIView *mask = [[UIView alloc] initWithFrame:maskFrame];
+    
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    
+    indicator.frame = self.view.frame;
+    NSLog(@"%f", self.scrollY);
+    [indicator startAnimating];
+    
+    [mask addSubview:indicator];
+    
+    [mask setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.78]];
+    
+    [self.view addSubview:mask];
+    
+    NSDictionary *photo = self.photos[indexPath.row];
+    PhotoDetailViewController *pdvc = [[PhotoDetailViewController alloc] init];
+    if (photo[@"medium"] != [NSNull null]) {
+        NSURL *url = [NSURL URLWithString:photo[@"medium"]];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        UIImage *img = [[UIImage alloc] initWithData:data];
+        pdvc.uiimage = img;
+    }
+    if (photo[@"critique"] != [NSNull null]) {
+        NSLog(@"setting critique");
+        pdvc.critique = photo[@"critique"];
+    }
+    if (photo[@"title"] != [NSNull null]) {
+        NSLog(@"setting title");
+        pdvc.photoTitle = photo[@"title"];
+    }
+    [self presentViewController:pdvc animated:YES completion:^{
+        [mask removeFromSuperview];
+    }];
+
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
@@ -174,44 +212,6 @@
     if (photo[@"critique"] != [NSNull null]) {
         cell.critiqueLabel.text = photo[@"critique"];
     }
-    cell.actionBlock = ^{
-        
-        CGRect maskFrame = CGRectMake(self.view.frame.origin.x, self.scrollY, self.view.frame.size.width, self.view.frame.size.height);
-        
-        UIView *mask = [[UIView alloc] initWithFrame:maskFrame];
-        
-        UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-        
-        indicator.frame = self.view.frame;
-        NSLog(@"%f", self.scrollY);
-        [indicator startAnimating];
-        
-        [mask addSubview:indicator];
-        
-        [mask setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.78]];
-        
-        [self.view addSubview:mask];
-        
-        NSLog(@"showing image for ...");
-        PhotoDetailViewController *pdvc = [[PhotoDetailViewController alloc] init];
-        if (photo[@"medium"] != [NSNull null]) {
-            NSURL *url = [NSURL URLWithString:photo[@"medium"]];
-            NSData *data = [NSData dataWithContentsOfURL:url];
-            UIImage *img = [[UIImage alloc] initWithData:data];
-            pdvc.uiimage = img;
-        }
-        if (photo[@"critique"] != [NSNull null]) {
-            NSLog(@"setting critique");
-            pdvc.critique = photo[@"critique"];
-        }
-        if (photo[@"title"] != [NSNull null]) {
-            NSLog(@"setting title");
-            pdvc.photoTitle = photo[@"title"];
-        }
-        [self presentViewController:pdvc animated:YES completion:^{
-            [mask removeFromSuperview];
-        }];
-    };
     return cell;
 }
 
