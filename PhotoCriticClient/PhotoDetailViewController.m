@@ -19,11 +19,16 @@
     
     self.image.image = self.uiimage;
     if (self.critique) {
-         self.critiqueLabel.text = self.critique;
+        self.critiqueLabel.text = self.critique;
     }
     if (self.photoTitle) {
         self.titleLabel.text = self.photoTitle;
     }
+}
+
+- (void)viewDidLayoutSubviews {
+    self.critiqueLabel.numberOfLines = 0;
+    [self.critiqueLabel sizeToFit];
 }
 
 - (void)viewDidLoad {
