@@ -46,7 +46,6 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     self.scrollY = scrollView.contentOffset.y;
-    NSLog(@"%f", self.scrollY);
 }
 
 - (void)fetchPhotos {
