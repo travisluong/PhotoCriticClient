@@ -210,6 +210,8 @@
     }
     if (photo[@"critique"] != [NSNull null]) {
         cell.critiqueLabel.text = photo[@"critique"];
+    } else {
+        cell.critiqueLabel.text = @"Critique Pending...";
     }
     return cell;
 }
