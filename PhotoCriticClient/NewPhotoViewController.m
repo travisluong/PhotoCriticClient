@@ -93,7 +93,7 @@
     
     UIView *mask = [[UIView alloc] initWithFrame:self.view.frame];
     
-    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] init];
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     
     indicator.frame = self.view.frame;
     

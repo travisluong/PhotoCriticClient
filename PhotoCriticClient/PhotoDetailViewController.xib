@@ -74,6 +74,7 @@
                 <constraint firstItem="Mac-wM-cQ1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3UQ-7O-1Ic"/>
                 <constraint firstItem="Mac-wM-cQ1" firstAttribute="top" secondItem="KSd-JX-uL0" secondAttribute="bottom" id="47W-T5-n18"/>
                 <constraint firstAttribute="trailing" secondItem="KSd-JX-uL0" secondAttribute="trailing" id="B5H-tg-NDT"/>
+                <constraint firstItem="KSd-JX-uL0" firstAttribute="height" secondItem="Mac-wM-cQ1" secondAttribute="height" id="COi-9A-ast"/>
                 <constraint firstAttribute="bottom" secondItem="Mac-wM-cQ1" secondAttribute="bottom" id="NEz-ea-dn2"/>
                 <constraint firstItem="KSd-JX-uL0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="UTU-cg-6i6"/>
                 <constraint firstAttribute="trailing" secondItem="Mac-wM-cQ1" secondAttribute="trailing" id="d4x-uB-bEN"/>
