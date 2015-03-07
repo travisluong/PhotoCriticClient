@@ -56,7 +56,7 @@
     UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     
     indicator.frame = self.view.frame;
-    NSLog(@"%f", self.scrollY);
+
     [indicator startAnimating];
     
     [mask addSubview:indicator];
@@ -100,10 +100,8 @@
             [mask removeFromSuperview];
             [self.activityIndicator stopAnimating];
             if ([self.total intValue ] > self.page * 20) {
-                NSLog(@"Not last page");
                 self.loadMoreButton.hidden = NO;
             } else {
-                NSLog(@"Last page");
                 self.loadMoreButton.hidden = YES;
             }
         });
@@ -165,7 +163,7 @@
     UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     
     indicator.frame = self.view.frame;
-    NSLog(@"%f", self.scrollY);
+
     [indicator startAnimating];
     
     [mask addSubview:indicator];
@@ -183,11 +181,9 @@
         pdvc.uiimage = img;
     }
     if (photo[@"critique"] != [NSNull null]) {
-        NSLog(@"setting critique");
         pdvc.critique = photo[@"critique"];
     }
     if (photo[@"title"] != [NSNull null]) {
-        NSLog(@"setting title");
         pdvc.photoTitle = photo[@"title"];
     }
     [self presentViewController:pdvc animated:YES completion:^{
@@ -249,16 +245,13 @@
 
 - (void)loadMore {
     if (self.isLoading) {
-        NSLog(@"do nothing");
     } else {
-        NSLog(@"load more rows");
         self.page += 1;
         self.isLoading = YES;
         [self fetchPhotos];
     }
 }
 - (IBAction)loadMoreButtonClicked:(id)sender {
-    NSLog(@"Load more clicked");
     self.page += 1;
     [self fetchPhotos];
 }

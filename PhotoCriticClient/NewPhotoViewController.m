@@ -47,15 +47,12 @@
     UIAlertController *avc = [[UIAlertController alloc] init];
     
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"foo" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        NSLog(@"action handler");
     }];
     
     UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"bar" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        NSLog(@"action handler");
     }];
     
     UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"baz" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        NSLog(@"action handler");
     }];
     
     [avc addAction:action];
@@ -182,7 +179,6 @@
     [request setURL:requestURL];
     
     NSURLSessionDataTask *dataTask = [app.session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSLog(@"%@", data);
         dispatch_async(dispatch_get_main_queue(), ^{
             self.imageView.image = nil;
             self.submittedMessage.hidden = NO;
