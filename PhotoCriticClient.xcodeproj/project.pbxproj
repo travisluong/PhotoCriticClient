@@ -12,14 +12,11 @@
 		CA2BAAD71A9C3A8E00D5B842 /* Settings-32.png in Resources */ = {isa = PBXBuildFile; fileRef = CA2BAAD61A9C3A8E00D5B842 /* Settings-32.png */; };
 		CA2BAADB1A9C3AAC00D5B842 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA2BAAD91A9C3AAC00D5B842 /* SettingsViewController.m */; };
 		CA2BAADC1A9C3AAC00D5B842 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA2BAADA1A9C3AAC00D5B842 /* SettingsViewController.xib */; };
-		CA3F2CEE1A8443190043E7A4 /* PhotosListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3F2CEC1A8443190043E7A4 /* PhotosListViewController.m */; };
-		CA3F2CEF1A8443190043E7A4 /* PhotosListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA3F2CED1A8443190043E7A4 /* PhotosListViewController.xib */; };
 		CA57E0CF1A7C4F950037E9A9 /* PhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA57E0CD1A7C4F950037E9A9 /* PhotoTableViewCell.m */; };
 		CA57E0D01A7C4F950037E9A9 /* PhotoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA57E0CE1A7C4F950037E9A9 /* PhotoTableViewCell.xib */; };
 		CA95BDC91A9843B30042AC67 /* Update-32.png in Resources */ = {isa = PBXBuildFile; fileRef = CA95BDC81A9843B30042AC67 /* Update-32.png */; };
 		CAB6C3051A707A0C0004C090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB6C3041A707A0C0004C090 /* main.m */; };
 		CAB6C3081A707A0C0004C090 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB6C3071A707A0C0004C090 /* AppDelegate.m */; };
-		CAB6C30B1A707A0C0004C090 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB6C30A1A707A0C0004C090 /* ViewController.m */; };
 		CAB6C30E1A707A0C0004C090 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAB6C30C1A707A0C0004C090 /* Main.storyboard */; };
 		CAB6C3101A707A0C0004C090 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAB6C30F1A707A0C0004C090 /* Images.xcassets */; };
 		CAB6C3131A707A0C0004C090 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAB6C3111A707A0C0004C090 /* LaunchScreen.xib */; };
@@ -51,9 +48,6 @@
 		CA2BAAD81A9C3AAC00D5B842 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		CA2BAAD91A9C3AAC00D5B842 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		CA2BAADA1A9C3AAC00D5B842 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
-		CA3F2CEB1A8443190043E7A4 /* PhotosListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosListViewController.h; sourceTree = "<group>"; };
-		CA3F2CEC1A8443190043E7A4 /* PhotosListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosListViewController.m; sourceTree = "<group>"; };
-		CA3F2CED1A8443190043E7A4 /* PhotosListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotosListViewController.xib; sourceTree = "<group>"; };
 		CA57E0CC1A7C4F950037E9A9 /* PhotoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoTableViewCell.h; sourceTree = "<group>"; };
 		CA57E0CD1A7C4F950037E9A9 /* PhotoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTableViewCell.m; sourceTree = "<group>"; };
 		CA57E0CE1A7C4F950037E9A9 /* PhotoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoTableViewCell.xib; sourceTree = "<group>"; };
@@ -63,8 +57,6 @@
 		CAB6C3041A707A0C0004C090 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CAB6C3061A707A0C0004C090 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CAB6C3071A707A0C0004C090 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CAB6C3091A707A0C0004C090 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		CAB6C30A1A707A0C0004C090 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CAB6C30D1A707A0C0004C090 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CAB6C30F1A707A0C0004C090 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CAB6C3121A707A0C0004C090 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -150,9 +142,6 @@
 				CAC8287B1A805C76003FB285 /* PhotoDetailViewController.h */,
 				CAC8287C1A805C76003FB285 /* PhotoDetailViewController.m */,
 				CAC8287D1A805C76003FB285 /* PhotoDetailViewController.xib */,
-				CA3F2CEB1A8443190043E7A4 /* PhotosListViewController.h */,
-				CA3F2CEC1A8443190043E7A4 /* PhotosListViewController.m */,
-				CA3F2CED1A8443190043E7A4 /* PhotosListViewController.xib */,
 				CAD075771A7853C400AE184B /* PhotosTableViewController.h */,
 				CAD075781A7853C400AE184B /* PhotosTableViewController.m */,
 				CAD075791A7853C400AE184B /* PhotosTableViewController.xib */,
@@ -160,8 +149,6 @@
 				CA57E0CD1A7C4F950037E9A9 /* PhotoTableViewCell.m */,
 				CA57E0CE1A7C4F950037E9A9 /* PhotoTableViewCell.xib */,
 				CAB6C3021A707A0C0004C090 /* Supporting Files */,
-				CAB6C3091A707A0C0004C090 /* ViewController.h */,
-				CAB6C30A1A707A0C0004C090 /* ViewController.m */,
 				CA2BAAD81A9C3AAC00D5B842 /* SettingsViewController.h */,
 				CA2BAAD91A9C3AAC00D5B842 /* SettingsViewController.m */,
 				CA2BAADA1A9C3AAC00D5B842 /* SettingsViewController.xib */,
@@ -287,7 +274,6 @@
 				CAC8287F1A805C76003FB285 /* PhotoDetailViewController.xib in Resources */,
 				CAB6C3101A707A0C0004C090 /* Images.xcassets in Resources */,
 				CA57E0D01A7C4F950037E9A9 /* PhotoTableViewCell.xib in Resources */,
-				CA3F2CEF1A8443190043E7A4 /* PhotosListViewController.xib in Resources */,
 				CA0A3E5A1A81964600330F67 /* camera-32.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,8 +297,6 @@
 				CAD0757F1A78540900AE184B /* NewPhotoViewController.m in Sources */,
 				CAC8287E1A805C76003FB285 /* PhotoDetailViewController.m in Sources */,
 				CA57E0CF1A7C4F950037E9A9 /* PhotoTableViewCell.m in Sources */,
-				CAB6C30B1A707A0C0004C090 /* ViewController.m in Sources */,
-				CA3F2CEE1A8443190043E7A4 /* PhotosListViewController.m in Sources */,
 				CA2BAADB1A9C3AAC00D5B842 /* SettingsViewController.m in Sources */,
 				CAB6C3081A707A0C0004C090 /* AppDelegate.m in Sources */,
 				CAB6C3051A707A0C0004C090 /* main.m in Sources */,

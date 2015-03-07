@@ -10,7 +10,6 @@
 #import "LoginViewController.h"
 #import "NewPhotoViewController.h"
 #import "PhotosTableViewController.h"
-#import "PhotosListViewController.h"
 #import "SettingsViewController.h"
 
 @interface AppDelegate ()
