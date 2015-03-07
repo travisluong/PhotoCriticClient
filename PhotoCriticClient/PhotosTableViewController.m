@@ -79,18 +79,6 @@
         NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
 
         self.photos = jsonObject[@"photos"];
-//        self.total = jsonObject[@"meta"][@"total"];
-//        self.totalLabel.text = jsonObject[@"meta"][@"total"];
-
- 
-//        [self.photos addObjectsFromArray:jsonObject[@"photos"]];
-        
-//        self.photos = jsonObject[@"photos"];
-//        NSLog(@"%@", [jsonObject[@"photos"] class]);
-        
-        
-//        NSLog(@"%@", self.photos);
-//        NSLog(@"%@", jsonObject[@"meta"][@"total"]);
         
         self.total = jsonObject[@"meta"][@"total"];
         
@@ -118,7 +106,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.activityIndicator.hidesWhenStopped = YES;
-//    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+
     UINib *nib = [UINib nibWithNibName:@"PhotoTableViewCell" bundle:nil];
     
     [self.tableView registerNib:nib forCellReuseIdentifier:@"PhotoTableViewCell"];
@@ -197,7 +185,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
     PhotoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PhotoTableViewCell"];
     // Configure the cell...
     NSDictionary *photo = self.photos[indexPath.row];
@@ -219,29 +206,6 @@
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
     self.imagePopover = nil;
 }
-
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//
-//}
-
-//- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-//    CGPoint offset = scrollView.contentOffset;
-//    CGRect bounds = scrollView.bounds;
-//    CGSize size = scrollView.contentSize;
-//    UIEdgeInsets inset = scrollView.contentInset;
-//    float y = offset.y + bounds.size.height - inset.bottom;
-//    float h = size.height;
-//    //    NSLog(@"offset: %f", offset.y);
-//    //    NSLog(@"content.height: %f", size.height);
-//    //    NSLog(@"bounds.height: %f", bounds.size.height);
-//    //    NSLog(@"inset.top: %f", inset.top);
-//    //    NSLog(@"inset.bottom: %f", inset.bottom);
-//    //    NSLog(@"pos: %f of %f", y, h);
-//    float reload_distance = 10;
-//    if (y > h + reload_distance) {
-//        [self loadMore];
-//    }
-//}
 
 - (void)loadMore {
     if (self.isLoading) {

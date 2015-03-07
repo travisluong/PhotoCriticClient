@@ -103,21 +103,6 @@
     [self.view addSubview:mask];
     
     AppDelegate *app = [UIApplication sharedApplication].delegate;
-//
-//    NSData *imageData = UIImagePNGRepresentation(self.imageView.image);
-//    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[imageData length]];
-//    
-//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-//    [request setHTTPMethod:@"POST"];
-//    
-//    NSString *requestString = [NSString stringWithFormat:@"http://localhost:3000/api/v1/photos?user_email=%@&user_token=%@", [app.authInfo objectForKey:@"email"], [app.authInfo objectForKey:@"authentication_token"]];
-//    NSURL *url = [NSURL URLWithString:requestString];
-//
-//    [request setURL:url];
-//    
-//    [request setValue:@"multipart/form-data" forHTTPHeaderField:@"Content-Type"];
-//    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-//    [request setHTTPBody:imageData];
     
     // Dictionary that holds post parameters. You can set your post parameters that your server accepts or programmed to accept.
     NSMutableDictionary* _params = [[NSMutableDictionary alloc] init];

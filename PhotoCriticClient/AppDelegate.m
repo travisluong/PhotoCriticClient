@@ -56,9 +56,6 @@
     SettingsViewController *svc = [[SettingsViewController alloc] init];
     ptvc.authInfo = self.authInfo;
     ptvc.session = self.session;
-//    PhotosListViewController *plvc = [[PhotosListViewController alloc] init];
-//    plvc.authInfo = self.authInfo;
-//    plvc.session = self.session;
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     tabBarController.viewControllers = @[ptvc, npvc, svc];
     self.window.rootViewController = tabBarController;
