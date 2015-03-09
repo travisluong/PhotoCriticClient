@@ -44,7 +44,8 @@
     NSURL *url = [NSURL URLWithString:requestString];
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
     [req setHTTPMethod:@"POST"];
-    NSDictionary *userDict = @{@"user": @{@"email": @"test@example.com", @"password": @"password"}};
+    //NSDictionary *userDict = @{@"user": @{@"email": @"test@example.com", @"password": @"password"}};
+    NSDictionary *userDict = @{@"user": @{@"email": self.username.text, @"password": self.password.text}};
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:userDict options:NSJSONWritingPrettyPrinted error:nil];
     [req setHTTPBody: jsonData];
     [req addValue:@"application/json" forHTTPHeaderField:@"Accept"];
