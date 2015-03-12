@@ -117,7 +117,8 @@
     NSString* FileParamConstant = @"photo[pic]";
     
     // the server url to which the image (or the media) is uploaded. Use your server url here
-    NSString *requestString = [NSString stringWithFormat:@"http://localhost:3000/api/v1/photos?user_email=%@&user_token=%@", [app.authInfo objectForKey:@"email"], [app.authInfo objectForKey:@"authentication_token"]];
+    //NSString *requestString = [NSString stringWithFormat:@"http://localhost:3000/api/v1/photos?user_email=%@&user_token=%@", [app.authInfo objectForKey:@"email"], [app.authInfo objectForKey:@"authentication_token"]];
+    NSString *requestString = [NSString stringWithFormat:@"https://photocritic.herokuapp.com/api/v1/photos?user_email=%@&user_token=%@", [app.authInfo objectForKey:@"email"], [app.authInfo objectForKey:@"authentication_token"]];
     NSURL *requestURL = [NSURL URLWithString:requestString];
 
     // create request

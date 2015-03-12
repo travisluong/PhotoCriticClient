@@ -40,7 +40,8 @@
 }
 
 - (IBAction)signIn:(id)sender {
-    NSString *requestString = @"http://localhost:3000/api/v1/sessions/create.json";
+//    NSString *requestString = @"http://localhost:3000/api/v1/sessions/create.json";
+    NSString *requestString = @"https://photocritic.herokuapp.com/api/v1/sessions/create.json";
     NSURL *url = [NSURL URLWithString:requestString];
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
     [req setHTTPMethod:@"POST"];

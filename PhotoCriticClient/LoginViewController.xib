@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F1066" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -17,23 +17,23 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo Critic" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sA-nk-h3R">
-                    <rect key="frame" x="20" y="81" width="560" height="21"/>
+                    <rect key="frame" x="20" y="36" width="560" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qoC-23-FWR">
-                    <rect key="frame" x="20" y="165" width="560" height="30"/>
+                    <rect key="frame" x="20" y="81" width="560" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PIP-68-s6e">
-                    <rect key="frame" x="20" y="226" width="560" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PIP-68-s6e">
+                    <rect key="frame" x="20" y="138" width="560" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXc-7t-Zu3">
-                    <rect key="frame" x="20" y="299" width="560" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXc-7t-Zu3">
+                    <rect key="frame" x="20" y="197" width="560" height="30"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="Sign in">
@@ -43,8 +43,8 @@
                         <action selector="signIn:" destination="-1" eventType="touchUpInside" id="7WV-9q-Wg9"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhb-3a-2PR">
-                    <rect key="frame" x="20" y="359" width="560" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhb-3a-2PR">
+                    <rect key="frame" x="20" y="254" width="560" height="30"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="Sign up">
@@ -59,15 +59,15 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="qoC-23-FWR" secondAttribute="trailing" constant="20" id="6zt-i9-LiW"/>
                 <constraint firstItem="lhb-3a-2PR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="9SR-M8-sWP"/>
-                <constraint firstItem="gXc-7t-Zu3" firstAttribute="top" secondItem="PIP-68-s6e" secondAttribute="bottom" constant="59" id="9p0-pR-E1A"/>
-                <constraint firstItem="PIP-68-s6e" firstAttribute="top" secondItem="qoC-23-FWR" secondAttribute="bottom" constant="68" id="MnU-1F-72H"/>
+                <constraint firstItem="gXc-7t-Zu3" firstAttribute="top" secondItem="PIP-68-s6e" secondAttribute="bottom" constant="29" id="9p0-pR-E1A"/>
+                <constraint firstItem="PIP-68-s6e" firstAttribute="top" secondItem="qoC-23-FWR" secondAttribute="bottom" constant="27" id="MnU-1F-72H"/>
                 <constraint firstItem="5sA-nk-h3R" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="OWp-It-iBn"/>
-                <constraint firstItem="lhb-3a-2PR" firstAttribute="top" secondItem="gXc-7t-Zu3" secondAttribute="bottom" constant="30" id="Oaa-a4-oca"/>
+                <constraint firstItem="lhb-3a-2PR" firstAttribute="top" secondItem="gXc-7t-Zu3" secondAttribute="bottom" constant="27" id="Oaa-a4-oca"/>
                 <constraint firstItem="gXc-7t-Zu3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Prw-Lb-35i"/>
-                <constraint firstItem="qoC-23-FWR" firstAttribute="top" secondItem="5sA-nk-h3R" secondAttribute="bottom" constant="63" id="RST-1g-jWE"/>
+                <constraint firstItem="qoC-23-FWR" firstAttribute="top" secondItem="5sA-nk-h3R" secondAttribute="bottom" constant="24" id="RST-1g-jWE"/>
                 <constraint firstAttribute="trailing" secondItem="5sA-nk-h3R" secondAttribute="trailing" constant="20" id="dwL-7V-nF2"/>
                 <constraint firstItem="qoC-23-FWR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="fO4-uv-xOb"/>
-                <constraint firstItem="5sA-nk-h3R" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="81" id="lp3-Vz-3sJ"/>
+                <constraint firstItem="5sA-nk-h3R" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="36" id="lp3-Vz-3sJ"/>
                 <constraint firstAttribute="trailing" secondItem="PIP-68-s6e" secondAttribute="trailing" constant="20" id="nMg-fG-TGm"/>
                 <constraint firstItem="PIP-68-s6e" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="uzL-rP-8Jv"/>
                 <constraint firstAttribute="trailing" secondItem="gXc-7t-Zu3" secondAttribute="trailing" constant="20" id="yeg-ic-BuP"/>
